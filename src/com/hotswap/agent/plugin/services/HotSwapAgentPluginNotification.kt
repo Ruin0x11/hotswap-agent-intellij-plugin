@@ -1,26 +1,26 @@
 /*
  *  Copyright (c) 2017 Dmitry Zhuravlev, Sergei Stepanov
+ *  Copyright (c) 2021 Ruin0x11
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ *  This code is free software; you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License version 2 only, as
+ *  published by the Free Software Foundation.
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ *  This code is distributed in the hope that it will be useful, but WITHOUT
+ *  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ *  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ *  version 2 for more details (a copy is included in the LICENSE file that
+ *  accompanied this code).
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ *  You should have received a copy of the GNU General Public License version
+ *  2 along with this work; if not, write to the Free Software Foundation,
+ *  Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 package com.hotswap.agent.plugin.services
 
 import com.hotswap.agent.plugin.util.Constants.Companion.DCEVM_RELEASES_URL
 import com.intellij.ide.BrowserUtil
-import com.intellij.notification.Notification
-import com.intellij.notification.NotificationGroup
-import com.intellij.notification.NotificationListener
-import com.intellij.notification.NotificationType
+import com.intellij.notification.*
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.project.Project
 import javax.swing.event.HyperlinkEvent
@@ -31,7 +31,7 @@ import javax.swing.event.HyperlinkEvent
  */
 class HotSwapAgentPluginNotification(private val project: Project?) {
     companion object {
-        private val NOTIFICATION_GROUP = NotificationGroup.balloonGroup("HotSwapAgent Notification Group")
+        private val NOTIFICATION_GROUP = NotificationGroupManager.getInstance().getNotificationGroup("HotSwapAgent Notification Group")
 
         private const val DOWNLOAD_AGENT_EVENT_DESCRIPTION = "download_agent"
         private const val DOWNLOAD_DCEVM_EVENT_DESCRIPTION = "download_dcevm"

@@ -12,9 +12,7 @@
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="module-library">
       <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/DCEVM-light-8u112-installer_cutted.jar!/" />
-        </CLASSES>
+        <CLASSES />
         <JAVADOC />
         <SOURCES />
       </library>

@@ -1,17 +1,21 @@
 <idea-plugin>
     <id>com.hotswap.agent.plugin</id>
-    <name>HotSwapAgent</name>
-    <version>1.3.0</version>
-    <vendor url="https://github.com/dmitry-zhuravlev/hotswap-agent-intellij-plugin">
-        Dmitry Zhuravlev, Sergei Stepanov
+    <name>HotSwapAgent JDK 11 + DCEVM</name>
+    <version>2.0.0</version>
+    <vendor url="https://github.com/Ruin0x11/hotswap-agent-intellij-plugin">
+        Ruin0x11
     </vendor>
 
     <description><![CDATA[
-      This plugin intends to simplify the usage of <a href="http://hotswapagent.org/">HotSwapAgent</a>.<br>
-      Agent provides real hotswap functionality together with <a href="https://dcevm.github.io/">DCEVM</a> which extends JVM class redefinition functionality.<br>
+      Updated version of <a href="https://github.com/dmitry-zhuravlev/hotswap-agent-intellij-plugin">HotSwapAgent</a> intended for use with TravaOpenJDK11 + DCEVM.<br>
     ]]></description>
 
     <change-notes><![CDATA[
+     <h1>2.0.0</h1>
+      <ul>
+         <li> Updated to support TravaOpenJDK11 + DCEVM.
+         <li> Set the latest compatible IDEA build to 203.5981.155.
+      </ul>
      <h1>1.3.0</h1>
       <ul>
          <li> Added ability to specify disabled plugins in settings.
@@ -27,22 +31,22 @@
       </ul>
      <h1>1.2</h1>
       <ul>
-         <li>Added ability to choose desired configurations with HotSwapAgent enabled
+         <li> Added ability to choose desired configurations with HotSwapAgent enabled
       </ul>
       <h1>1.1</h1>
       <ul>
-         <li>DCEVM installation detection, notifications about missing DCEVM installation
-         <li>fix: plugin settings now per-project level
+         <li> DCEVM installation detection, notifications about missing DCEVM installation
+         <li> fix: plugin settings now per-project level
       </ul>
       <h1>1.0</h1>
       <ul>
-         <li>Initial version
+         <li> Initial version
       </ul>
     ]]>
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="181.5281.24"/>
+    <idea-version since-build="203.5981.155"/>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -64,6 +68,10 @@
         <projectService serviceImplementation="com.hotswap.agent.plugin.services.DownloadManager"/>
         <projectService serviceImplementation="com.hotswap.agent.plugin.services.HotSwapAgentPluginNotification"/>
         <java.programPatcher implementation="com.hotswap.agent.plugin.configuration.patcher.HotSwapAgentPluginConfigurationPatcher"/>
+        <notificationGroup id="HotSwapAgent Notification Group"
+                           displayType="BALLOON"
+                           bundle="HotSwapAgentIntellijPluginBundle"
+                           key="com.hotswap.agent.plugin.notificationgroup.name"/>
     </extensions>
 
     <actions>
